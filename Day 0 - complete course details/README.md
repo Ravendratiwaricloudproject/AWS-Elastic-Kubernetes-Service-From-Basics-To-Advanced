@@ -63,6 +63,7 @@ Day 29 - EKS CA - Cluster Autosaler
 Day 30 -  EKS Monitoring using CloudWatch Agent & Fluentd - Container Insights
 
 
+
 ## Kubernetes Concepts Covered
 
 | S.No | Kubernetes Concept Name |
@@ -98,7 +99,8 @@ Day 30 -  EKS Monitoring using CloudWatch Agent & Fluentd - Container Insights
 | 29.  | DaemonSets |
 | 30.  | DaemonSets |
 | 31.  | Config Maps|
-| 32.  |  |
+
+
 
 
 ## AWS Services Covered
@@ -115,12 +117,12 @@ Day 30 -  EKS Monitoring using CloudWatch Agent & Fluentd - Container Insights
 | 8.   | AWS Developer Tool - CodeCommit  |
 | 9.  | AWS Developer Tool - CodeBuild  |
 | 10.  | AWS Developer Tool - CodePipeline  |
-| 11.  | AWS X-Ray  |
+| 11.  |  AWS CLI, EKS CLI - eksctl, kubctl |
 | 12.  | AWS CloudWatch - Container Insights  |
 | 13.  | AWS CloudWatch - Log Groups & Log Insights  |
 | 14.  | AWS CloudWatch - Alarms  |
 | 15.  | AWS Route53  |
 | 16.  | AWS Certificate Manager  |
-| 17.  | EKS CLI - eksctl  |
+
 
 
