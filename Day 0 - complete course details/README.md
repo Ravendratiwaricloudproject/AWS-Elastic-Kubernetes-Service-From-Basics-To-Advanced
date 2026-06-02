@@ -2,12 +2,13 @@
 
 ## Course Modules
 
-| Day 01| AWS - Elastic Kubernetes Service (EKS) Introduction |
+Day 01 - AWS - Elastic Kubernetes Service (EKS) Introduction
 
-| Day 02| Prerequisites for Amazon EKS Deployment |
+Day 02 - Prerequisites for Amazon EKS Deployment
 
-| Day 03| Create AWS EKS Cluster using eksctl CLI |
-| 4.   | EKS Storage with AWS EBS CSI Driver |
+Day 03 - Create AWS EKS Cluster using eksctl CLI
+
+Day 04 - EKS Storage with AWS EBS CSI Driver
 | 5.   | Kubernetes Important Concepts for Application Deployments |
 | 5.1  | Kubernetes - Secrets |
 | 5.2  | Kubernetes - Init Containers |
