@@ -1,128 +1,126 @@
-# AWS - Elastic Kubernetes Service (EKS) - Course Details
+# Install AWS, kubectl & eksctl CLI's
 
-## Course Modules
+## Step-00: Introduction
+- Install AWS CLI
+- Install kubectl CLI
+- Install eksctl CLI
 
-Day 01 - AWS - Elastic Kubernetes Service (EKS) Introduction
+## Step-01: Install AWS CLI
+- Reference-1: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+- Reference-2: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+### Step-01-01: MAC - Install and configure AWS CLI
+- Download the binary and install via command line using below two commands. 
+```
+# Download Binary
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 
-Day 02 - Prerequisites for Amazon EKS Deployment
+# Install the binary
+sudo installer -pkg ./AWSCLIV2.pkg -target /
+```
+- Verify the installation 
+```
+aws --version
+aws-cli/2.0.7 Python/3.7.4 Darwin/19.4.0 botocore/2.0.0dev11
 
-Day 03 - Create AWS EKS Cluster using eksctl CLI
+which aws
+```
+- Reference: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html
 
-Day 04 - EKS Storage with AWS EBS CSI Driver
+### Step-01-02: Windows 10 - Install and configure AWS CLI
+- The AWS CLI version 2 is supported on Windows XP or later.
+- The AWS CLI version 2 supports only 64-bit versions of Windows.
+- Download Binary: https://awscli.amazonaws.com/AWSCLIV2.msi
+- Install the downloaded binary (standard windows install)
+```
+aws --version
+aws-cli/2.0.8 Python/3.7.5 Windows/10 botocore/2.0.0dev12
+```
+- Reference: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html
 
-Day 05 - Kubernetes Important Concepts for Application Deployments
+### Step-01-03: Configure AWS Command Line using Security Credentials
+- Go to AWS Management Console --> Services --> IAM
+- Select the IAM User: kalyan 
+- **Important Note:** Use only IAM user to generate **Security Credentials**. Never ever use Root User. (Highly not recommended)
+- Click on **Security credentials** tab
+- Click on **Create access key**
+- Copy Access ID and Secret access key
+- Go to command line and provide the required details
+```
+aws configure
+AWS Access Key ID [None]: ABCDEFGHIAZBERTUCNGG  (Replace your creds when prompted)
+AWS Secret Access Key [None]: uMe7fumK1IdDB094q2sGFhM5Bqt3HQRw3IHZzBDTm  (Replace your creds when prompted)
+Default region name [None]: us-east-1
+Default output format [None]: json
+```
+- Test if AWS CLI is working after configuring the above
+```
+aws ec2 describe-vpcs
+```
 
-Day 06 - Kubernetes - Secrets
+## Step-02: Install kubectl CLI
+- **IMPORTANT NOTE:** Kubectl binaries for EKS please prefer to use from Amazon (**Amazon EKS-vended kubectl binary**)
+- This will help us to get the exact Kubectl client version based on our EKS Cluster version. You can use the below documentation link to download the binary.
+- Reference: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 
-Day 07 - Kubernetes - Init Containers
+### Step-02-01: MAC - Install and configure kubectl
+- Kubectl version we are using here is 1.16.8 (It may vary based on Cluster version you are planning use in AWS EKS)
 
-Day 08 - Kubernetes - Liveness & Readiness Probes
+```
+# Download the Package
+mkdir kubectlbinary
+cd kubectlbinary
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/darwin/amd64/kubectl
 
-Day 09 - Kubernetes - Requests & Limits
+# Provide execute permissions
+chmod +x ./kubectl
 
-Day 10 - Kubernetes - Namespaces, Limit Range and Resource Quota
+# Set the Path by copying to user Home Directory
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+echo 'export PATH=$PATH:$HOME/bin' >> ~/.bash_profile
 
-Day 11 - EKS Storage with AWS RDS MySQL Database
-
-Day 12 - Load Balancing using NLB - AWS Network Load Balancer
-
-Day 13 - Load Balancing using ALB - AWS Application Load Balancer
-
-Day 14 - ALB Ingress Controller - Install
-
-Day 15 - ALB Ingress - Basics
-
-Day 16 - ALB Ingress - Context path based routing
-
-Day 17 - ALB Ingress - SSL
-
-Day 18 - ALB Ingress - SSL Redirect HTTP to HTTPS
-
-Day 19 - ALB Ingress - External DNS
-
-Day 20 - Deploy Kubernetes workloads on AWS Fargate Serverless
-
-Day 21 - AWS Fargate Profiles - Basic
-
-Day 22 - AWS Fargate Profiles - Advanced using YAML
-
-Day 23 - Build and Push Container to AWS ECR and use that in EKS
-
-Day 24 - DevOps with AWS Developer Tools CodeCommit, CodeBuild and CodePipeline
-
-Day 25 - Microservices Deployment on EKS - Service Discovery
-
-Day 26 - Microservices Canary Deployments
-
-Day 27 - EKS HPA - Horizontal Pod Autosaler
-
-Day 28 - EKS VPA - Vertical Pod Autosaler
-
-Day 29 - EKS CA - Cluster Autosaler
-
-Day 30 -  EKS Monitoring using CloudWatch Agent & Fluentd - Container Insights
-
-
-
-## Kubernetes Concepts Covered
-
-| S.No | Kubernetes Concept Name |
-| ---- | ------------------- |
-| 1.   | Kubernetes Architecture  |
-| 2.   | Pods  |
-| 3.   | ReplicaSets  |
-| 4.   | Deployments  |
-| 5.   | Services - Node Port Service  |
-| 6.   | Services - Cluster IP Service  |
-| 7.   | Services - External Name Service  |
-| 8.   | Services - Ingress Service  |
-| 9.   | Services - Ingress SSL & SSL Redirect  |
-| 10.  | Services - Ingress & External DNS  |
-| 11.  | Imperative - with kubectl  |
-| 12.  | Declarative - Declarative with YAML  |
-| 13.  | Secrets |
-| 14.  | Init Containers |
-| 15.  | Liveness & Readiness Probes |
-| 16.  | Requests & Limits |
-| 17.  | Namespaces - Imperative |
-| 18.  | Namespaces - Limit Range |
-| 19.  | Namespaces - Resource Quota |
-| 20.  | Storage Classes |
-| 21.  | Persistent Volumes |
-| 22.  | Persistent Volume Claims |
-| 23.  | Services - Load Balancers |
-| 24.  | Annotations |
-| 25.  | Canary Deployments |
-| 26.  | HPA - Horizontal Pod Autoscaler |
-| 27.  | VPA - Vertical Pod Autoscaler |
-| 28.  | CA - Cluster Autoscaler |
-| 29.  | DaemonSets |
-| 30.  | DaemonSets |
-| 31.  | Config Maps|
+# Verify the kubectl version
+kubectl version --short --client
+Output: Client Version: v1.16.8-eks-e16311
+```
 
 
+### Step-02-02: Windows 10 - Install and configure kubectl
+- Install kubectl on Windows 10 
+```
+mkdir kubectlbinary
+cd kubectlbinary
+curl -o kubectl.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/windows/amd64/kubectl.exe
+```
+- Update the system **Path** environment variable 
+```
+C:\Users\KALYAN\Documents\kubectlbinary
+```
+- Verify the kubectl client version
+```
+kubectl version --short --client
+kubectl version --client
+```
+
+## Step-03: Install eksctl CLI
+### Step-03-01: eksctl on Mac
+```
+# Install Homebrew on MacOs
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# Install the Weaveworks Homebrew tap.
+brew tap weaveworks/tap
+
+# Install the Weaveworks Homebrew tap.
+brew install weaveworks/tap/eksctl
+
+# Verify eksctl version
+eksctl version
+```
+
+### Step-03-02: eksctl on windows or linux
+- For windows and linux OS, you can refer below documentation link. 
+- **Reference:** https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl
 
 
-## AWS Services Covered
-
-| S.No | AWS Service Name |
-| ---- | ---------------- |
-| 1.   | AWS EKS - Elastic Kubernetes Service  |
-| 2.   | AWS EBS - Elastic Block Store  |
-| 3.   | AWS RDS - Relational Database Service MySQL  |
-| 4.   | AWS NLB - Network Load Balancer  |
-| 5.   | AWS ALB - Application Load Balancer  |
-| 6.   | AWS Fargate - Serverless  |
-| 7.   | AWS ECR - Elastic Container Registry  |
-| 8.   | AWS Developer Tool - CodeCommit  |
-| 9.  | AWS Developer Tool - CodeBuild  |
-| 10.  | AWS Developer Tool - CodePipeline  |
-| 11.  |  AWS CLI, EKS CLI - eksctl, kubctl |
-| 12.  | AWS CloudWatch - Container Insights  |
-| 13.  | AWS CloudWatch - Log Groups & Log Insights  |
-| 14.  | AWS CloudWatch - Alarms  |
-| 15.  | AWS Route53  |
-| 16.  | AWS Certificate Manager  |
-
-
-
+## References:
+- https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
