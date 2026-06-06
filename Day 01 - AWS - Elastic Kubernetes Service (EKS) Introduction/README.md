@@ -29,6 +29,7 @@ Google Cloud – GKE (Google Kubernetes Engine)
 # What is Amazon EKS (Elastic Kubernetes Service)?
 
 Amazon EKS is a managed Kubernetes service that makes it easy to run Kubernetes on AWS without managing the control plane. AWS manages the control plane infrastructure, ensuring high availability and scalability, while you manage the data plane (worker nodes) and workloads (unless using features like EKS Auto Mode or Fargate).
+
 Amazon EKS simplifies building, securing, and maintaining Kubernetes clusters. There are two operational models (approaches) in Amazon EKS based on how AWS manages the cluster. That means, we have two ways to use/manage/operate EKS are as follows:
 
 • EKS standard: Using the EKS standard feature, AWS manages the Kubernetes control plane and data plane (worker node & node group) managed by you.
