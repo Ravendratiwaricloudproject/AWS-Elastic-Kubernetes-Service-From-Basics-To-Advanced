@@ -130,6 +130,11 @@ eksctl version
   
   https://git-scm.com/install/windows
   
+  - Use git --version to check Git version
+
+  
   ## Step-5:Install vs code
 
   https://code.visualstudio.com/download
+
+  - Use code --version to check VS Code version
