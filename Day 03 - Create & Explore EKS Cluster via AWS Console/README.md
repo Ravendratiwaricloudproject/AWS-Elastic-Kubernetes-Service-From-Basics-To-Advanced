@@ -152,15 +152,16 @@ Addons use EKS resources (DaemonSet, Deployment, etc) to implement cluster featu
 
 Common Types of EKS Addons:
 
-1. VPC CNI Plugin
+1.	VPC CNI: Enable pod networking within your cluster.
+   
+2.	Kube-proxy: Enable service networking within your cluster.
+   
+3.	Core DNS: Enable service discovery within your cluster.
+   
+4.	Metrics server: Install metrics-server to collect cluster-wide resource usage data for autoscaling and monitoring.
+   
+5.	Pod Identity Agent: Install EKS Pod Identity Agent to use EKS Pod Identity to grant AWS IAM permissions to pods through Kubernetes service accounts.
 
-2. Kube-proxy
-
-3. Core DNS
-
-4. Metrics server
-
-5. Pod Identity Agent
 
 And many more.
 
